@@ -22,9 +22,12 @@
     --fonte-texto: "Adamina", Georgia, "Times New Roman", serif;
     --fonte-codigo: "Fira Code", Consolas, "Courier New", monospace;
 
-    --raio: 12px;
-    --largura-lateral: 248px;
-    --altura-topo: 76px;
+    /* Tamanho geral do site: 1 = 100%. Mude só este número para aumentar ou diminuir tudo. */
+    --escala: 0.7;
+
+    --raio: 0.75rem;
+    --largura-lateral: 15.5rem;
+    --altura-topo: 4.75rem;
 }
 
 /* ===== Base ===== */
@@ -33,6 +36,7 @@
 }
 
 html {
+    font-size: calc(16px * var(--escala));
     scroll-padding-top: calc(var(--altura-topo) + 1rem);
 }
 
@@ -49,7 +53,7 @@ body {
     background: var(--fundo);
     color: var(--texto);
     font-family: var(--fonte-texto);
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.7;
 }
 
@@ -154,7 +158,7 @@ img {
     align-items: center;
     gap: 0.85rem;
     padding: 0.7rem 1rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     color: var(--texto-suave);
     text-decoration: none;
     transition: background 0.15s, color 0.15s;
@@ -193,16 +197,18 @@ img {
     margin: 0.5rem 0 0;
 }
 
+/* ocupa o espaço que sobra na barra e encolhe inteira, sem cortar a árvore */
 .lateral-arte {
     display: block;
+    flex: 1 1 auto;
     width: calc(100% + 2rem);
     max-width: none;
-    height: 48vh;
-    max-height: 460px;
-    min-height: 0;
-    margin: auto -1rem 0;
-    object-fit: cover;
-    object-position: bottom;
+    height: 0;
+    max-height: 31rem;
+    min-height: 6rem;
+    margin: 1.5rem -1rem 0;
+    object-fit: contain;
+    object-position: left bottom;
     image-rendering: pixelated;
 }
 
@@ -210,13 +216,13 @@ img {
 main {
     grid-area: conteudo;
     width: 100%;
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
     padding: 1.75rem 2rem 3rem;
 }
 
 main.leitura {
-    max-width: 860px;
+    max-width: 53.75rem;
 }
 
 .trilha {
@@ -237,7 +243,7 @@ main.leitura {
     position: relative;
     display: flex;
     align-items: center;
-    min-height: 270px;
+    min-height: 16.875rem;
     overflow: hidden;
     background: var(--superficie);
     border: 1px solid var(--borda);
@@ -270,7 +276,7 @@ main.leitura {
 .hero-texto {
     position: relative;
     z-index: 1;
-    max-width: 640px;
+    max-width: 40rem;
     padding: 1.75rem 2.25rem;
 }
 
@@ -351,8 +357,8 @@ main.leitura {
     left: 0;
     bottom: 0;
     width: 3rem;
-    height: 3px;
-    border-radius: 2px;
+    height: 0.2rem;
+    border-radius: 0.125rem;
     background: var(--azul-claro);
 }
 
@@ -446,7 +452,7 @@ main.leitura {
 
 .categoria:hover .seta {
     color: var(--azul-claro);
-    transform: translateX(3px);
+    transform: translateX(0.2rem);
 }
 
 /* ===== Página de categoria ===== */
@@ -550,7 +556,7 @@ main.leitura {
     place-items: center;
     width: 3rem;
     height: 3rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     background: var(--azul-escuro);
     color: var(--azul-claro);
 }
@@ -593,7 +599,7 @@ main.leitura {
     padding: 0.75rem 1rem;
     background: var(--fundo);
     border: 1px solid var(--borda);
-    border-radius: 10px;
+    border-radius: 0.625rem;
     text-decoration: none;
     transition: border-color 0.15s, background 0.15s;
 }
@@ -684,7 +690,7 @@ blockquote {
 code {
     padding: 0.1em 0.35em;
     background: var(--azul-escuro);
-    border-radius: 4px;
+    border-radius: 0.25rem;
     color: #CFE3F2;
     font-family: var(--fonte-codigo);
     font-size: 0.88em;
@@ -695,7 +701,7 @@ pre {
     padding: 1rem 1.25rem;
     background: #070D1A;
     border: 1px solid var(--borda);
-    border-radius: 10px;
+    border-radius: 0.625rem;
     line-height: 1.5;
 }
 
@@ -765,7 +771,12 @@ details[open] summary {
 }
 
 /* ===== Tablets e celulares ===== */
-@media (max-width: 900px) {
+@media (max-width: 760px) {
+    /* no celular o texto volta ao tamanho normal, senão fica pequeno demais */
+    :root {
+        --escala: 1;
+    }
+
     body {
         grid-template-columns: minmax(0, 1fr);
         grid-template-areas:
@@ -831,7 +842,7 @@ details[open] summary {
     .hero-arte {
         position: static;
         width: 100%;
-        height: 150px;
+        height: 9.5rem;
     }
 
     .hero::after {
