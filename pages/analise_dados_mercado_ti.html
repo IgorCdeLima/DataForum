@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de dados no mercado de TI | DataForum</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topo">
+        <a class="marca" href="../index.html">
+            <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="4.5" height="7" rx="1.2" fill="currentColor" stroke="none"/><rect x="9.75" y="9" width="4.5" height="12" rx="1.2" fill="currentColor" stroke="none"/><rect x="16.5" y="3" width="4.5" height="18" rx="1.2" fill="currentColor" stroke="none"/></svg>
+            <span>Data<span class="destaque">Forum</span></span>
+        </a>
+        <p class="slogan">Análise de Dados · Aprenda · Compartilhe · Evolua</p>
+    </header>
+
+    <nav class="lateral" aria-label="Navegação principal">
+        <div class="lateral-fixa">
+            <ul class="menu">
+                <li><a href="../index.html"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Início</a></li>
+                <li><a href="tutoriais.html" class="ativo" aria-current="page"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5C5 4.3 9 4.3 12 6.5v13.5c-3-2-7-2-10-.8z"/><path d="M22 5.5c-3-1.2-7-1.2-10 1v13.5c3-2 7-2 10-.8z"/></svg>Tutoriais e Guias</a></li>
+                <li><a href="projetos.html"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/><path d="m14 4-4 16"/></svg>Projetos</a></li>
+                <li><a href="recursos.html"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>Recursos</a></li>
+            </ul>
+            <div class="frase">
+                <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-9"/><path d="M12 12C12 8 9 5 4 5c0 4 3 7 8 7z"/><path d="M12 10c0-3 2.5-6 7-6 0 4-3 6-7 6z"/></svg>
+                <p>Dados transformam ideias em decisões.</p>
+            </div>
+            <img class="lateral-arte" src="../img/lateral.svg" alt="">
+        </div>
+    </nav>
+
+    <main class="leitura">
+        <nav class="trilha" aria-label="Você está em">
+            <a href="../index.html">Início</a> <span aria-hidden="true">›</span>
+            <a href="tutoriais.html">Tutoriais e Guias</a>
+        </nav>
+
+        <h1 id="title">
+            Análise de dados no mercado de TI
+        </h1>
+        <p class="resumo">
+            Uma introdução ao que é a análise de dados, por que as empresas investem nela
+            e como dar os primeiros passos usando Python.
+        </p>
+
+        <section id="o-que-e">
+            <h2>O que é?</h2>
+            <p>
+                Análise de dados é o processo de <strong>coletar, organizar, examinar e interpretar
+                dados</strong> para responder perguntas e apoiar decisões. Em vez de decidir
+                "no achismo", usamos os dados para entender o que aconteceu, por que aconteceu
+                e o que provavelmente vai acontecer.
+            </p>
+            <p>
+                Um dado, sozinho, é só um registro: um número de vendas, a data de um acesso,
+                o peso de um animal. Quando juntamos muitos registros e fazemos as perguntas
+                certas, eles viram <strong>informação</strong> útil.
+            </p>
+        </section>
+
+        <section id="pra-que-serve">
+            <h2>Para que serve?</h2>
+            <p>A análise de dados ajuda a:</p>
+            <ul>
+                <li><strong>Descrever</strong> uma situação: quanto vendemos no último mês?</li>
+                <li><strong>Diagnosticar</strong> problemas: por que as vendas caíram em uma região?</li>
+                <li><strong>Prever</strong> tendências: quanto devemos vender no próximo trimestre?</li>
+                <li><strong>Recomendar</strong> ações: em qual produto vale a pena investir?</li>
+            </ul>
+            <p>
+                Em resumo, ela transforma dados brutos em respostas que ajudam pessoas e empresas
+                a tomar decisões melhores.
+            </p>
+        </section>
+
+        <section id="como-e-feito">
+            <h2>Como é feito?</h2>
+            <p>De forma simplificada, uma análise segue estas etapas:</p>
+            <ol>
+                <li><strong>Definir a pergunta</strong> que queremos responder.</li>
+                <li><strong>Coletar</strong> os dados (planilhas, bancos de dados, APIs etc.).</li>
+                <li><strong>Limpar</strong> os dados: tratar valores faltando, erros e duplicados.</li>
+                <li><strong>Explorar</strong> os dados com estatísticas e gráficos.</li>
+                <li><strong>Comunicar</strong> os resultados de forma clara.</li>
+            </ol>
+
+            <h3>As principais bibliotecas Python</h3>
+            <ul>
+                <li><strong>pandas</strong>: lê e manipula tabelas de dados (os <code>DataFrame</code>s).</li>
+                <li><strong>NumPy</strong>: faz cálculos numéricos de forma rápida; o pandas é construído sobre ele.</li>
+                <li><strong>Matplotlib</strong>: a biblioteca base para criar gráficos.</li>
+                <li><strong>Seaborn</strong>: cria gráficos estatísticos bonitos com pouco código, e já traz alguns datasets de exemplo.</li>
+            </ul>
+            <p>Para instalar todas de uma vez, no terminal:</p>
+<pre><code>pip install pandas numpy matplotlib seaborn</code></pre>
+
+            <h3>Nosso dataset: os pinguins de Palmer</h3>
+            <p>
+                Vamos usar um conjunto de dados com medidas de <strong>344 pinguins</strong> de três
+                espécies (Adelie, Chinstrap e Gentoo), coletados em três ilhas da Antártida.
+                O Seaborn carrega esse dataset direto da internet, sem precisar baixar nenhum arquivo:
+            </p>
+<pre><code>import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+pinguins = sns.load_dataset("penguins")
+
+# mostra as 5 primeiras linhas da tabela
+print(pinguins.head())</code></pre>
+            <p>Cada linha é um pinguim, e cada coluna é uma característica dele:</p>
+            <ul>
+                <li><code>species</code>: espécie</li>
+                <li><code>island</code>: ilha onde foi observado</li>
+                <li><code>bill_length_mm</code> e <code>bill_depth_mm</code>: comprimento e altura do bico (mm)</li>
+                <li><code>flipper_length_mm</code>: comprimento da nadadeira (mm)</li>
+                <li><code>body_mass_g</code>: massa corporal (g)</li>
+                <li><code>sex</code>: sexo</li>
+            </ul>
+
+            <h3>Primeiras perguntas aos dados</h3>
+<pre><code># quantas linhas e colunas existem?
+print(pinguins.shape)          # (344, 7)
+
+# quantos pinguins de cada espécie?
+print(pinguins["species"].value_counts())
+
+# estatísticas das colunas numéricas (média, mínimo, máximo...)
+print(pinguins.describe())
+
+# existem valores faltando?
+print(pinguins.isna().sum())</code></pre>
+            <p>
+                Repare que algumas colunas têm valores faltando (<code>NaN</code>). Tratar esse tipo
+                de problema é o papel da <strong>limpeza de dados</strong>, assunto de um próximo artigo.
+            </p>
+
+            <h3>Agrupando e comparando</h3>
+            <p>Qual espécie é a mais pesada, em média?</p>
+<pre><code>media_massa = pinguins.groupby("species")["body_mass_g"].mean()
+print(media_massa.round(1))
+
+# species
+# Adelie       3700.7
+# Chinstrap    3733.1
+# Gentoo       5076.0</code></pre>
+
+            <h3>Visualizando</h3>
+            <p>Um gráfico muitas vezes mostra em segundos o que uma tabela esconde:</p>
+<pre><code>sns.scatterplot(data=pinguins, x="flipper_length_mm", y="body_mass_g", hue="species")
+plt.title("Nadadeira x massa corporal por espécie")
+plt.show()</code></pre>
+            <p>
+                No gráfico, fica claro que pinguins com nadadeiras maiores tendem a ser mais pesados,
+                e que os Gentoo formam um grupo separado das outras duas espécies.
+            </p>
+        </section>
+
+        <section id="mercado">
+            <h2>Utilidade no mercado de trabalho</h2>
+            <p>
+                Praticamente toda empresa gera dados: vendas, acessos a um site, chamados de suporte,
+                estoque. Por isso, quem sabe transformar esses dados em respostas é procurado em
+                áreas como varejo, bancos, saúde, logística e tecnologia.
+            </p>
+            <p>Algumas carreiras da área:</p>
+            <ul>
+                <li><strong>Analista de dados</strong>: responde perguntas do negócio com consultas, planilhas, gráficos e relatórios.</li>
+                <li><strong>Analista de BI</strong> (Business Intelligence): constrói painéis (dashboards) para acompanhar indicadores.</li>
+                <li><strong>Engenheiro(a) de dados</strong>: cria a estrutura que coleta, armazena e organiza os dados.</li>
+                <li><strong>Cientista de dados</strong>: usa estatística e aprendizado de máquina para fazer previsões.</li>
+            </ul>
+            <p>
+                As ferramentas mais pedidas nessas vagas costumam ser <strong>Python</strong>,
+                <strong>SQL</strong>, planilhas (Excel ou Google Sheets) e ferramentas de visualização
+                como Power BI ou Tableau. O que você aprende com pandas aqui é a base para
+                todas elas.
+            </p>
+        </section>
+
+        <section id="exercicios">
+            <h2>Exercícios</h2>
+            <p>Use o dataset <code>penguins</code> do Seaborn em todos os exercícios.</p>
+
+            <div class="exercicio">
+                <h3>Exercício 1: Conhecendo a tabela</h3>
+                <p>Carregue o dataset e descubra quantas linhas e quantas colunas ele possui.</p>
+                <details>
+                    <summary>Ver resposta</summary>
+<pre><code>import seaborn as sns
+
+pinguins = sns.load_dataset("penguins")
+print(pinguins.shape)   # (344, 7): 344 linhas e 7 colunas</code></pre>
+                </details>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 2: Pinguins por ilha</h3>
+                <p>Quantos pinguins foram observados em cada ilha? Qual ilha tem mais registros?</p>
+                <details>
+                    <summary>Ver resposta</summary>
+<pre><code>print(pinguins["island"].value_counts())
+
+# Biscoe       168
+# Dream        124
+# Torgersen     52
+# Biscoe é a ilha com mais registros.</code></pre>
+                </details>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 3: A maior nadadeira</h3>
+                <p>Qual espécie tem, em média, a maior nadadeira (<code>flipper_length_mm</code>)?</p>
+                <details>
+                    <summary>Ver resposta</summary>
+<pre><code>print(pinguins.groupby("species")["flipper_length_mm"].mean().round(1))
+
+# Adelie       190.0
+# Chinstrap    195.8
+# Gentoo       217.2
+# A espécie Gentoo tem a maior nadadeira média.</code></pre>
+                </details>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 4: Dados faltando</h3>
+                <p>Qual coluna tem mais valores faltando? Quantos são?</p>
+                <details>
+                    <summary>Ver resposta</summary>
+<pre><code>print(pinguins.isna().sum())
+
+# A coluna "sex" é a que tem mais valores faltando: 11.</code></pre>
+                </details>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 5: Desafio com gráfico</h3>
+                <p>
+                    Crie um histograma da massa corporal (<code>body_mass_g</code>), separando as
+                    espécies por cor. O que o gráfico mostra?
+                </p>
+                <details>
+                    <summary>Ver resposta</summary>
+<pre><code>import matplotlib.pyplot as plt
+
+sns.histplot(data=pinguins, x="body_mass_g", hue="species")
+plt.title("Distribuição da massa corporal por espécie")
+plt.show()</code></pre>
+                    <p>
+                        Os Gentoo se concentram nas massas mais altas, enquanto Adelie e Chinstrap
+                        ficam bem parecidos entre si.
+                    </p>
+                </details>
+            </div>
+        </section>
+
+        <section id="referencias">
+            <h2>Referências</h2>
+            <ul>
+                <li>
+                    McKINNEY, Wes. <em>Python para Análise de Dados</em>. Novatec.
+                    Escrito pelo criador do pandas.
+                    Versão em inglês gratuita: <a href="https://wesmckinney.com/book/">wesmckinney.com/book</a>
+                </li>
+                <li>
+                    VANDERPLAS, Jake. <em>Python Data Science Handbook</em>. O'Reilly.
+                    Gratuito online: <a href="https://jakevdp.github.io/PythonDataScienceHandbook/">jakevdp.github.io/PythonDataScienceHandbook</a>
+                </li>
+                <li>
+                    Documentação do pandas, guia "10 minutes to pandas":
+                    <a href="https://pandas.pydata.org/docs/user_guide/10min.html">pandas.pydata.org</a>
+                </li>
+                <li>
+                    Tutorial oficial do Seaborn:
+                    <a href="https://seaborn.pydata.org/tutorial.html">seaborn.pydata.org/tutorial</a>
+                </li>
+                <li>
+                    Sobre o dataset dos pinguins (Palmer Penguins):
+                    <a href="https://allisonhorst.github.io/palmerpenguins/">allisonhorst.github.io/palmerpenguins</a>
+                    e no Kaggle:
+                    <a href="https://www.kaggle.com/datasets/srisyra02/penguin-species-dataset">Penguin Species Dataset</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p><strong>DataForum</strong> · Análise de Dados · Aprenda · Compartilhe · Evolua</p>
+    </footer>
+</body>
+</html>
