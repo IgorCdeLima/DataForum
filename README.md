@@ -1,6 +1,6 @@
 # DataForum
 
-Link: <a herf='https://igorcdelima.github.io/DataForum/'>DataForum</a>
+Link: herf='https://igorcdelima.github.io/DataForum/
 
 **Análise de Dados · Aprenda · Compartilhe · Evolua**
 
