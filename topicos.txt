@@ -1,0 +1,3 @@
+Assuntos a tratar e criar tópicos
+[1] ETL: O que fazer com um dado bruto?
+[2] Análise dos dados: O que devemos olhar ao analisar um dataset

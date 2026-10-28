@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos para análise univariada de dados | DataForum</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="topo">
+        <a class="marca" href="../index.html">
+            <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="4.5" height="7" rx="1.2" fill="currentColor" stroke="none"/><rect x="9.75" y="9" width="4.5" height="12" rx="1.2" fill="currentColor" stroke="none"/><rect x="16.5" y="3" width="4.5" height="18" rx="1.2" fill="currentColor" stroke="none"/></svg>
+            <span>Data<span class="destaque">Forum</span></span>
+        </a>
+        <p class="slogan">Análise de Dados · Aprenda · Compartilhe · Evolua</p>
+    </header>
+
+    <nav class="lateral" aria-label="Navegação principal">
+        <div class="lateral-fixa">
+            <ul class="menu">
+                <li><a href="../index.html"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Início</a></li>
+                <li><a href="tutoriais.html" class="ativo" aria-current="page"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5C5 4.3 9 4.3 12 6.5v13.5c-3-2-7-2-10-.8z"/><path d="M22 5.5c-3-1.2-7-1.2-10 1v13.5c3-2 7-2 10-.8z"/></svg>Tutoriais e Guias</a></li>
+                <li><a href="projetos.html"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/><path d="m14 4-4 16"/></svg>Projetos</a></li>
+                <li><a href="recursos.html"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>Recursos</a></li>
+            </ul>
+            <div class="frase">
+                <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-9"/><path d="M12 12C12 8 9 5 4 5c0 4 3 7 8 7z"/><path d="M12 10c0-3 2.5-6 7-6 0 4-3 6-7 6z"/></svg>
+                <p>Dados transformam ideias em decisões.</p>
+            </div>
+            <img class="lateral-arte" src="../img/lateral.svg" alt="">
+        </div>
+    </nav>
+
+    <main class="leitura">
+        <nav class="trilha" aria-label="Você está em">
+            <a href="../index.html">Início</a> <span aria-hidden="true">›</span>
+            <a href="tutoriais.html">Tutoriais e Guias</a>
+        </nav>
+
+        <h1 id="title">
+            Gráficos para análise univariada de dados
+        </h1>
+        <p class="resumo">
+            Quando usar um gráfico, qual escolher para cada tipo de dado e o que cada gráfico
+            precisa mostrar. Todos os exemplos usam o dataset <strong>penguins</strong> do Seaborn.
+        </p>
+
+        <section id="o-que-e">
+            <h2>O que é?</h2>
+            <p>
+                Uma análise univariada examina <strong>uma variável por vez</strong>. Os gráficos
+                univariados mostram como os valores dessa variável se distribuem: onde se concentram,
+                quão espalhados estão e se existe algum valor muito fora do normal.
+            </p>
+            <p>
+                Gráfico não substitui a estatística descritiva. Ele <strong>complementa</strong>.
+                Um exemplo clássico é o <strong>Quarteto de Anscombe</strong> (Anscombe, 1973):
+                quatro conjuntos de dados com média, variância e correlação praticamente idênticas,
+                mas com formatos muito diferentes quando plotados. Por isso, a regra é:
+                <strong>visualize antes de resumir</strong>.
+            </p>
+        </section>
+
+        <section id="pra-que-serve">
+            <h2>Para que serve?</h2>
+            <p>
+                Uma tabela responde perguntas exatas: "qual é a média?", "quantos registros existem?".
+                Um gráfico responde perguntas de <strong>padrão</strong>: "os valores se concentram
+                em algum lugar?", "existe um valor muito fora do normal?", "essa distribuição é simétrica?".
+            </p>
+            <p>Use gráficos quando:</p>
+            <ul>
+                <li>a tabela tem muitas linhas e você precisa de uma visão geral rápida;</li>
+                <li>quer <strong>comparar distribuições</strong> (por exemplo, o peso de duas espécies);</li>
+                <li>procura <strong>outliers</strong> ou valores faltando;</li>
+                <li>precisa apresentar o resultado para outras pessoas.</li>
+            </ul>
+            <p>Não use gráficos quando:</p>
+            <ul>
+                <li>você só quer um número, como a média ou a contagem total;</li>
+                <li>os dados são poucos (duas ou três observações não formam um padrão);</li>
+                <li>o gráfico só enfeita e não responde nenhuma pergunta.</li>
+            </ul>
+        </section>
+
+        <section id="como-e-feito">
+            <h2>Como é feito?</h2>
+
+            <h3>Qual gráfico é melhor para cada dado</h3>
+            <p>A escolha depende do <strong>tipo da variável</strong>:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo da variável</th>
+                        <th>Exemplo nos pinguins</th>
+                        <th>Gráfico recomendado</th>
+                        <th>Por quê</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Categórica nominal</td>
+                        <td><code>species</code>, <code>island</code>, <code>sex</code></td>
+                        <td>Gráfico de barras</td>
+                        <td>Mostra a frequência de cada categoria sem sugerir uma ordem</td>
+                    </tr>
+                    <tr>
+                        <td>Categórica ordinal</td>
+                        <td>(ex.: P, M, G)</td>
+                        <td>Gráfico de barras na ordem natural</td>
+                        <td>A ordem das categorias faz parte da informação</td>
+                    </tr>
+                    <tr>
+                        <td>Numérica discreta</td>
+                        <td>(ex.: número de filhos)</td>
+                        <td>Barras ou linhas</td>
+                        <td>Cada valor é tratado como uma categoria, se houver poucos valores</td>
+                    </tr>
+                    <tr>
+                        <td>Numérica contínua</td>
+                        <td><code>body_mass_g</code>, <code>flipper_length_mm</code></td>
+                        <td>Histograma, KDE, box-plot, violin, ECDF</td>
+                        <td>Mostram forma, centro, dispersão e outliers</td>
+                    </tr>
+                    <tr>
+                        <td>Verificação de normalidade</td>
+                        <td><code>body_mass_g</code></td>
+                        <td>QQ-plot</td>
+                        <td>Compara os quantis da amostra com os de uma normal</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Variáveis categóricas</h3>
+            <p>
+                Para uma variável nominal, o <strong>gráfico de barras</strong> é a escolha padrão.
+                O gráfico de pizza também existe, mas só funciona bem com <strong>poucas categorias</strong>
+                e diferenças grandes entre elas. Com muitas fatias, fica difícil comparar.
+            </p>
+<pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+
+pinguins = sns.load_dataset("penguins")
+
+sns.countplot(data=pinguins, x="species")
+plt.title("Quantidade de pinguins por espécie")
+plt.show()</code></pre>
+            <p>
+                Para uma variável ordinal, mantenha a ordem natural no eixo X. Ordenar as barras
+                por tamanho apaga a informação de ordem.
+            </p>
+
+            <h3>Variáveis numéricas contínuas</h3>
+            <p>
+                <strong>Histograma.</strong> Divide os valores em intervalos (classes) e mostra quantos
+                caem em cada um. É o gráfico mais usado para começar a explorar uma variável numérica.
+                O número de classes influencia a leitura: poucas classes escondem detalhes, muitas criam ruído.
+            </p>
+<pre><code>sns.histplot(data=pinguins, x="body_mass_g", bins=20)
+plt.title("Distribuição da massa corporal")
+plt.show()</code></pre>
+
+            <p>
+                <strong>Curva de densidade (KDE).</strong> Estima a forma da distribuição com uma curva
+                suave, sem depender de intervalos fixos. É útil para ver se a distribuição tem um ou
+                mais picos.
+            </p>
+<pre><code>sns.kdeplot(data=pinguins, x="flipper_length_mm", fill=True)
+plt.title("Densidade do comprimento da nadadeira")
+plt.show()</code></pre>
+
+            <p>
+                <strong>Curva gaussiana (normal).</strong> A distribuição normal é uma curva em forma
+                de sino, simétrica em torno da média. Ela é descrita por dois parâmetros: a média (μ),
+                que define o centro, e o desvio-padrão (σ), que define a largura:
+            </p>
+            <math display="block">
+                <mrow>
+                    <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mrow><mi>σ</mi><msqrt><mrow><mn>2</mn><mi>π</mi></mrow></msqrt></mrow>
+                    </mfrac>
+                    <msup>
+                        <mi>e</mi>
+                        <mrow>
+                            <mo>−</mo>
+                            <mfrac>
+                                <msup><mrow><mo>(</mo><mi>x</mi><mo>−</mo><mi>μ</mi><mo>)</mo></mrow><mn>2</mn></msup>
+                                <mrow><mn>2</mn><msup><mi>σ</mi><mn>2</mn></msup></mrow>
+                            </mfrac>
+                        </mrow>
+                    </msup>
+                </mrow>
+            </math>
+            <p>
+                Para usar a gaussiana como referência, calcule μ e σ da amostra e desenhe a curva sobre
+                o histograma. Se o histograma e a curva se parecem, a normal é um bom modelo. Se não se
+                parecem, ela não serve para aquela variável.
+            </p>
+<pre><code>import numpy as np
+from scipy.stats import norm
+
+massa = pinguins["body_mass_g"].dropna()
+mu, sigma = massa.mean(), massa.std()
+
+sns.histplot(massa, stat="density", bins=25, color="lightgray")
+x = np.linspace(massa.min(), massa.max(), 200)
+plt.plot(x, norm.pdf(x, loc=mu, scale=sigma), color="crimson",
+         label=f"Normal (μ={mu:.0f}, σ={sigma:.0f})")
+plt.title("Massa corporal com curva normal sobreposta")
+plt.legend()
+plt.show()</code></pre>
+            <p>
+                Repare que a massa corporal <strong>global</strong> não segue bem a normal, porque os
+                dados misturam três espécies com massas médias diferentes. A distribuição fica com mais
+                de um pico. Separar por espécie costuma melhorar o ajuste, e essa é uma pista de que a
+                variável precisa ser analisada por grupo.
+            </p>
+
+            <p>
+                <strong>Box-plot.</strong> Resume a distribuição com cinco valores: mediana (linha no meio
+                da caixa), quartil 1 e quartil 3 (bordas da caixa), e os limites inferior e superior
+                (extremidades dos "bigodes"). Pontos fora dos bigodes são candidatos a outliers. É o
+                gráfico ideal para comparar a dispersão de vários grupos lado a lado.
+            </p>
+<pre><code>sns.boxplot(data=pinguins, x="bill_depth_mm")
+plt.title("Profundidade do bico")
+plt.show()</code></pre>
+
+            <p>
+                <strong>Violin plot.</strong> É parecido com o box-plot, mas mostra a <strong>densidade</strong>
+                da distribuição no formato de um violino. Ajuda a ver se há mais de um pico, algo que o
+                box-plot esconde.
+            </p>
+<pre><code>sns.violinplot(data=pinguins, x="bill_depth_mm")
+plt.title("Distribuição da profundidade do bico")
+plt.show()</code></pre>
+
+            <p>
+                <strong>ECDF (função de distribuição acumulada empírica).</strong> Mostra, para cada valor,
+                a proporção de observações menores ou iguais a ele. Não depende de intervalos nem de
+                suavização, e é ótima para comparar grupos e ler percentis.
+            </p>
+<pre><code>sns.ecdfplot(data=pinguins, x="flipper_length_mm", hue="species")
+plt.title("ECDF do comprimento da nadadeira por espécie")
+plt.show()</code></pre>
+
+            <p>
+                <strong>QQ-plot.</strong> Compara os quantis da amostra com os quantis de uma distribuição
+                normal. Se os pontos seguem uma reta, a amostra é aproximadamente normal. Desvios nas
+                pontas indicam caudas mais pesadas ou outliers.
+            </p>
+<pre><code>from scipy import stats
+
+stats.probplot(pinguins["flipper_length_mm"].dropna(), dist="norm", plot=plt)
+plt.title("QQ-plot do comprimento da nadadeira")
+plt.show()</code></pre>
+
+            <h3>Variáveis discretas</h3>
+            <p>
+                Para uma variável discreta com poucos valores distintos, como número de filhos, o
+                <strong>gráfico de barras</strong> ou o <strong>gráfico de linhas verticais</strong>
+                funcionam bem. Quando a variável tem muitos valores diferentes, trate-a como contínua e
+                use histograma ou box-plot. Frequências absolutas, relativas e acumuladas podem ser
+                mostradas nos mesmos gráficos.
+            </p>
+
+            <h3>Outros gráficos úteis</h3>
+            <ul>
+                <li>
+                    <strong>Ramo-e-folhas</strong>: mostra os valores individualmente agrupados por dezena.
+                    Bom para amostras pequenas, mas quase não é usado com ferramentas modernas.
+                </li>
+                <li>
+                    <strong>Gráfico de Pareto</strong>: barras ordenadas em ordem decrescente com uma linha
+                    de porcentagem acumulada. Útil para identificar as poucas categorias que concentram a
+                    maior parte dos casos.
+                </li>
+            </ul>
+
+            <h3>O que o gráfico deve informar</h3>
+            <p>
+                Um bom gráfico univariado responde a algumas perguntas básicas. Antes de publicar,
+                confira se o seu consegue responder a todas:
+            </p>
+            <ul>
+                <li><strong>Forma</strong>: a distribuição é simétrica, assimétrica, com um pico ou com vários picos?</li>
+                <li><strong>Centro</strong>: onde estão a média e a mediana?</li>
+                <li><strong>Dispersão</strong>: quão espalhados estão os valores?</li>
+                <li><strong>Outliers e valores faltando</strong>: há pontos muito distantes ou dados ausentes que mudam a leitura?</li>
+                <li><strong>Tamanho da amostra</strong>: quantas observações estão representadas?</li>
+                <li><strong>Escala e unidade</strong>: os eixos têm nome e unidade (mm, g, contagem)?</li>
+            </ul>
+            <p>Além disso, o <strong>título deve afirmar a mensagem</strong>, e não só dizer o nome da variável:</p>
+            <ul>
+                <li>Título fraco: "Massa corporal"</li>
+                <li>Título forte: "Gentoo tem massa corporal maior que Adelie e Chinstrap"</li>
+            </ul>
+            <p>
+                Lembre que um mesmo gráfico pode esconder problemas. Um histograma com poucas classes
+                pode esconder um segundo pico, e um box-plot pode esconder a forma da distribuição. Por
+                isso, quando possível, combine dois gráficos (por exemplo, box-plot e violin plot).
+            </p>
+        </section>
+
+        <section id="mercado">
+            <h2>Utilidade no mercado de trabalho</h2>
+            <p>Os gráficos univariados aparecem em praticamente todo trabalho com dados. Três contextos se destacam.</p>
+
+            <h3>Ciência e análise de dados</h3>
+            <p>
+                Antes de responder uma pergunta de negócio ou treinar um modelo, o analista precisa entender
+                os dados. Um estudo com 18 analistas de universidades e da indústria mostrou que o uso mais
+                citado da EDA é <strong>checar a qualidade dos dados</strong> antes da análise: todos os
+                entrevistados relataram essa prática. O histograma e o gráfico de contagem foram os gráficos
+                univariados mais citados, por 15 dos 18 analistas. O box-plot apareceu com menos frequência,
+                citado explicitamente por apenas dois. Como a amostra foi recrutada por contatos, o estudo
+                mostra a variedade de práticas, não a frequência exata de cada uma no mercado
+                (<a href="https://arxiv.org/abs/1911.00568">Wongsuphasawat, Liu e Heer, 2019</a>).
+            </p>
+            <p>
+                Na prática, isso significa que o histograma é o primeiro gráfico que o analista desenha para
+                uma variável nova, e o box-plot é usado para encontrar outliers antes de decidir como tratá-los.
+            </p>
+
+            <h3>Business intelligence e relatórios</h3>
+            <p>
+                Em relatórios e painéis (dashboards) de negócio, o <strong>gráfico de barras</strong> é o mais
+                comum. Ele mostra a frequência ou o total de cada categoria: vendas por produto, clientes por
+                região, chamados de suporte por tipo de problema.
+            </p>
+            <p>
+                O <strong>gráfico de pizza</strong> aparece quando a pergunta é sobre <strong>composição</strong>:
+                "que parte do total cabe a cada categoria?". Um exemplo é a participação de cada área no
+                orçamento da empresa
+                (<a href="https://www.comet.com/site/blog/different-plots-used-in-exploratory-data-analysis-eda/">Comet: Different Plots Used in EDA</a>).
+                Mas, como vimos na seção sobre a escolha do gráfico, a pizza só funciona com poucas categorias.
+                Com muitas fatias, as diferenças ficam difíceis de ver, e um gráfico de barras ordenado comunica
+                melhor a mesma informação.
+            </p>
+
+            <h3>Controle de qualidade e processos industriais</h3>
+            <p>
+                Na indústria, a análise univariada é a base de ferramentas clássicas de qualidade
+                (<a href="https://www.6sigma.us/?p=588">6sigma.us: Six Sigma Tools</a>):
+            </p>
+            <ul>
+                <li>
+                    <strong>Histograma</strong>: mostra a distribuição de uma medida do processo, por exemplo,
+                    o diâmetro de uma peça. Com ele, o engenheiro responde onde os valores se concentram, quão
+                    espalhados estão, se são simétricos ou assimétricos e se há valores atípicos
+                    (<a href="https://www.itl.nist.gov/div898/handbook/eda/section3/histogra.htm">NIST: Histogram</a>).
+                </li>
+                <li>
+                    <strong>Gráfico de Pareto</strong>: ordena as causas de defeitos da mais frequente para a
+                    menos frequente, com uma linha de porcentagem acumulada. A ideia por trás dele é o
+                    <strong>princípio de Pareto</strong>, também chamado de regra 80/20: poucas causas costumam
+                    concentrar a maior parte dos problemas. É uma regra prática, não uma lei. Os números 80 e 20
+                    não são exatos e mudam de um caso para outro. O que importa é saber onde concentrar o esforço.
+                </li>
+                <li>
+                    <strong>Gráfico de controle</strong>: monitora uma característica do processo ao longo do
+                    tempo, para saber se ele continua funcionando como deveria.
+                </li>
+            </ul>
+            <p>
+                O gráfico de controle é um pouco diferente dos outros deste artigo. Ele continua olhando
+                <strong>uma variável só</strong>, mas coloca no eixo X o <strong>tempo</strong> (ou a ordem
+                das amostras), em vez de mostrar só como os valores se distribuem. Ele tem três linhas
+                horizontais:
+            </p>
+            <ul>
+                <li><strong>Linha central</strong>: a média do processo quando ele está funcionando normalmente.</li>
+                <li>
+                    <strong>Limites superior e inferior</strong>: normalmente ficam a 3 desvios-padrão da média
+                    (por isso são chamados de limites 3-sigma). Enquanto o processo está sob controle, quase todos
+                    os pontos caem entre eles.
+                </li>
+            </ul>
+            <p>
+                Pontos dentro dos limites, sem nenhum padrão, mostram a variação natural do processo. Um ponto
+                fora dos limites é um sinal de que existe uma <strong>causa identificável</strong>, como uma
+                máquina desregulada ou um lote ruim de matéria-prima, e que ela deve ser investigada
+                (<a href="https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc31.htm">NIST: What are Control Charts?</a>).
+            </p>
+            <p>
+                Essas ferramentas aparecem em processos de manufatura e em empresas de serviços que medem a
+                qualidade de suas operações.
+            </p>
+
+            <h3>Resumo</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Contexto</th>
+                        <th>Gráficos mais usados</th>
+                        <th>Objetivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ciência e análise de dados</td>
+                        <td>Histograma, gráfico de contagem, box-plot</td>
+                        <td>Checar a qualidade dos dados e encontrar outliers antes da análise</td>
+                    </tr>
+                    <tr>
+                        <td>Business intelligence</td>
+                        <td>Barras, pizza (poucas categorias)</td>
+                        <td>Comparar categorias e mostrar a composição de um total</td>
+                    </tr>
+                    <tr>
+                        <td>Controle de qualidade</td>
+                        <td>Histograma, Pareto, gráfico de controle</td>
+                        <td>Identificar causas de defeitos e monitorar a estabilidade do processo</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                Em todos os casos, o gráfico serve para tomar uma decisão. Por isso, o que você aprende sobre
+                forma, centro, dispersão e outliers vale nas três áreas.
+            </p>
+        </section>
+
+        <section id="exercicios">
+            <h2>Exercícios</h2>
+            <p>Use o dataset <code>penguins</code> em todos os exercícios.</p>
+
+            <div class="exercicio">
+                <h3>Exercício 1: Contagem por espécie</h3>
+                <p>Quantos pinguins existem em cada espécie? Qual gráfico é o mais adequado para mostrar essa informação?</p>
+                <details>
+                    <summary>Ver resposta</summary>
+<pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+
+pinguins = sns.load_dataset("penguins")
+print(pinguins["species"].value_counts())
+# Adelie: 152, Gentoo: 124, Chinstrap: 68
+
+sns.countplot(data=pinguins, x="species")
+plt.show()</code></pre>
+                    <p>A variável <code>species</code> é categórica nominal, então o gráfico de barras é o mais adequado.</p>
+                </details>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 2: Valores faltando em sexo</h3>
+                <p>
+                    Quantos registros de <code>sex</code> estão faltando? Como isso aparece no gráfico
+                    se você não tratar os valores ausentes?
+                </p>
+                <details>
+                    <summary>Ver resposta</summary>
+<pre><code>print(pinguins["sex"].value_counts(dropna=False))
+# Inclui a contagem de NaN: 11 registros sem sexo informado.
+
+sns.countplot(data=pinguins, x="sex")   # não mostra os NaN
+plt.show()</code></pre>
+                    <p>
+                        Por padrão, <code>value_counts()</code> e <code>countplot()</code> ignoram valores
+                        faltando. Para mostrar o total de registros sem informação, use
+                        <code>dropna=False</code> na contagem e deixe isso explícito no texto do gráfico.
+                    </p>
+                </details>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 3: Distribuição da massa com normal</h3>
+                <p>
+                    Desenhe o histograma de <code>body_mass_g</code> com a curva normal sobreposta.
+                    A normal descreve bem essa variável?
+                </p>
+                <details>
+                    <summary>Ver resposta</summary>
+                    <p>O código está na seção sobre a curva gaussiana, acima.</p>
+                    <p>
+                        A normal <strong>não</strong> descreve bem a massa global, porque os dados misturam
+                        três espécies com massas médias diferentes. Separe por espécie e repita o gráfico
+                        para comparar:
+                    </p>
+<pre><code>for especie in pinguins["species"].unique():
+    grupo = pinguins.loc[pinguins["species"] == especie, "body_mass_g"].dropna()
+    sns.kdeplot(grupo, label=especie, fill=True, alpha=0.3)
+plt.legend()
+plt.title("Massa corporal por espécie")
+plt.show()</code></pre>
+                    <p>
+                        A conclusão é que a análise deve considerar a estrutura dos grupos antes de
+                        assumir normalidade.
+                    </p>
+                </details>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 4: Outliers com box-plot</h3>
+                <p>
+                    Crie um box-plot de <code>bill_depth_mm</code> com todos os pinguins juntos e outro
+                    separado por espécie. Em qual dos dois aparecem pontos fora dos bigodes? Confirme a
+                    contagem com a regra do intervalo interquartil (IQR), calculada para o conjunto todo
+                    e para cada espécie.
+                </p>
+                <details>
+                    <summary>Ver resposta</summary>
+<pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.boxplot(data=pinguins, x="bill_depth_mm")
+plt.title("Profundidade do bico: todos os pinguins")
+plt.show()
+
+sns.boxplot(data=pinguins, x="bill_depth_mm", y="species")
+plt.title("Profundidade do bico por espécie")
+plt.show()
+
+# devolve os valores que a regra do IQR classifica como outliers
+def outliers_iqr(serie):
+    q1 = serie.quantile(0.25)
+    q3 = serie.quantile(0.75)
+    iqr = q3 - q1
+    return serie[(serie &lt; q1 - 1.5 * iqr) | (serie &gt; q3 + 1.5 * iqr)]
+
+print("Todos:", len(outliers_iqr(pinguins["bill_depth_mm"])))
+# Todos: 0
+
+for especie, grupo in pinguins.groupby("species"):
+    print(especie, outliers_iqr(grupo["bill_depth_mm"]).tolist())
+# Adelie [21.5]
+# Chinstrap []
+# Gentoo []</code></pre>
+                    <p>
+                        Com todos os pinguins juntos, nenhum ponto fica fora dos bigodes, e a regra do IQR
+                        encontra 0 outliers. Separando por espécie, aparece 1 outlier: um Adelie com bico de
+                        21,5 mm de profundidade.
+                    </p>
+                    <p>
+                        Isso acontece porque os Gentoo têm o bico bem mais raso (15,0 mm em média) que os
+                        Adelie e os Chinstrap (cerca de 18,3 mm). Misturar as espécies deixa a caixa e os
+                        bigodes largos o bastante para esconder o valor atípico. É a mesma lição do
+                        Exercício 3: analise cada grupo antes de tirar conclusões.
+                    </p>
+                </details>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 5: Desafio com QQ-plot</h3>
+                <p>
+                    Faça um QQ-plot de <code>flipper_length_mm</code> e um histograma da mesma variável.
+                    Os dois gráficos concordam sobre a normalidade?
+                </p>
+                <details>
+                    <summary>Ver resposta</summary>
+<pre><code>from scipy import stats
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+dados = pinguins["flipper_length_mm"].dropna()
+
+fig, eixos = plt.subplots(1, 2, figsize=(10, 4))
+sns.histplot(dados, kde=True, ax=eixos[0])
+eixos[0].set_title("Histograma")
+stats.probplot(dados, dist="norm", plot=eixos[1])
+eixos[1].set_title("QQ-plot")
+plt.show()</code></pre>
+                    <p>
+                        O histograma mostra a forma geral, e o QQ-plot mostra os desvios nas pontas com mais
+                        precisão. Como a variável combina três espécies, o resultado costuma indicar que a
+                        normalidade não é uma boa suposição para o conjunto todo. Discuta com a turma se os
+                        dois gráficos concordam e por quê.
+                    </p>
+                </details>
+            </div>
+        </section>
+
+        <section id="referencias">
+            <h2>Referências</h2>
+            <ul>
+                <li>
+                    ANSCOMBE, F. J. Graphs in statistical analysis. <em>The American Statistician</em>,
+                    v. 27, n. 1, p. 17–21, 1973.
+                </li>
+                <li>
+                    FERREIRA, R. G. C. <em>Preparação e análise exploratória de dados</em> (material didático).
+                    Sagah Educação. Capítulo sobre análise univariada de dados.
+                </li>
+                <li>
+                    IBM. <em>O que é gerenciamento de dados?</em> Disponível em:
+                    <a href="https://www.ibm.com/br-pt/think/topics/data-management">ibm.com/br-pt/think/topics/data-management</a>.
+                    Acesso em: 28 out. 2026.
+                </li>
+                <li>
+                    REIS, J.; HOUSLEY, M. <em>Fundamentals of Data Engineering</em>. O'Reilly, 2022.
+                    Contexto sobre o ciclo de vida dos dados.
+                </li>
+                <li>
+                    THE PYTHON GRAPH GALLERY. Disponível em:
+                    <a href="https://python-graph-gallery.com/">python-graph-gallery.com</a>
+                </li>
+                <li>
+                    Tutorial oficial do Seaborn:
+                    <a href="https://seaborn.pydata.org/tutorial.html">seaborn.pydata.org/tutorial</a>
+                </li>
+                <li>
+                    Sobre o dataset dos pinguins (Palmer Penguins):
+                    <a href="https://allisonhorst.github.io/palmerpenguins/">allisonhorst.github.io/palmerpenguins</a>
+                </li>
+                <li>
+                    WONGSUPHASAWAT, K.; LIU, Y.; HEER, J. <em>Goals, Process, and Challenges of Exploratory
+                    Data Analysis: An Interview Study</em>. arXiv:1911.00568, 2019. Disponível em:
+                    <a href="https://arxiv.org/abs/1911.00568">arxiv.org/abs/1911.00568</a>
+                </li>
+                <li>
+                    COMET. <em>Different Plots Used in Exploratory Data Analysis (EDA)</em>. Disponível em:
+                    <a href="https://www.comet.com/site/blog/different-plots-used-in-exploratory-data-analysis-eda/">comet.com/site/blog</a>
+                </li>
+                <li>
+                    6SIGMA. <em>Six Sigma Tools</em>. Disponível em:
+                    <a href="https://www.6sigma.us/?p=588">6sigma.us</a>
+                </li>
+                <li>
+                    NIST/SEMATECH. <em>e-Handbook of Statistical Methods</em>. Seções 1.3.3.14 (Histogram) e
+                    6.3.1 (What are Control Charts?). Disponível em:
+                    <a href="https://www.itl.nist.gov/div898/handbook/">itl.nist.gov/div898/handbook</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p><strong>DataForum</strong> · Análise de Dados · Aprenda · Compartilhe · Evolua</p>
+    </footer>
+</body>
+</html>

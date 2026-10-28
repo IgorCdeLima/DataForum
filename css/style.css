@@ -677,6 +677,45 @@ main.leitura {
     margin-bottom: 0.4rem;
 }
 
+/* Tabelas dos artigos, no mesmo estilo dos cards */
+.leitura table {
+    display: block;
+    overflow-x: auto;
+    margin: 1rem 0 1.5rem;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    border-spacing: 0;
+    background: var(--superficie);
+}
+
+.leitura th,
+.leitura td {
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--borda);
+}
+
+.leitura th {
+    background: var(--azul-escuro);
+    color: var(--azul-claro);
+    font-family: var(--fonte-titulo);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.leitura tbody tr:nth-child(even) {
+    background: #0C1730;
+}
+
+.leitura tbody tr:hover {
+    background: var(--superficie-hover);
+}
+
+.leitura tbody tr:last-child td {
+    border-bottom: none;
+}
+
 blockquote {
     margin: 1.5rem 0;
     padding: 0.75rem 1.25rem;

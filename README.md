@@ -16,8 +16,8 @@ exercícios, e acompanhar a evolução do conteúdo.
 - **Tutoriais e Guias:** artigos que explicam conceitos de análise de dados, passo a passo.
 - **Projetos:** estudos e projetos práticos de análise de dados.
 - **Recursos:** uma coleção organizada de livros, documentações (Python, pandas, NumPy,
-  Matplotlib, Seaborn, Streamlit) e sites para encontrar artigos científicos, como IEEE Xplore,
-  arXiv e SciELO.
+  Matplotlib, Seaborn, SciPy, Streamlit), sites e tutoriais, datasets e sites para encontrar
+  artigos científicos, como IEEE Xplore, arXiv e SciELO.
 
 ## Como os artigos são organizados
 
@@ -38,6 +38,7 @@ por link do Google Drive, indicado em cada artigo.
 | Artigo | Categoria |
 |---|---|
 | [Análise de dados no mercado de TI](pages/analise_dados_mercado_ti.html) | Tutoriais e Guias |
+| [Gráficos para análise univariada de dados](pages/graficos_analise_univariada.html) | Tutoriais e Guias |
 
 ## Tecnologias
 
@@ -60,5 +61,6 @@ O site é propositalmente simples: apenas **HTML e CSS**, sem JavaScript e sem e
     ├── projetos.html           # categoria: Projetos
     ├── recursos.html           # livros, documentações e artigos científicos
     ├── model_article.html      # modelo usado para escrever novos artigos
-    └── analise_dados_mercado_ti.html
+    ├── analise_dados_mercado_ti.html
+    └── graficos_analise_univariada.html
 ```
